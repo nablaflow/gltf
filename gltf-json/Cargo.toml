@@ -18,6 +18,7 @@ serde_json = { features = ["raw_value"], version = "1.0" }
 default = []
 names = []
 extras = []
+KHR_draco_mesh_compression = []
 KHR_lights_punctual = []
 KHR_materials_ior = []
 KHR_materials_pbrSpecularGlossiness = []

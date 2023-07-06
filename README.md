@@ -53,6 +53,7 @@ The following glTF extensions are supported by the crate:
 - `KHR_materials_transmission`
 - `KHR_materials_ior`
 - `KHR_materials_emissive_strength `
+- `KHR_draco_mesh_compression`
 
 To use an extension, list its name in the `features` section.
 

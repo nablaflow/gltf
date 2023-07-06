@@ -18,6 +18,14 @@ pub struct Primitive {
         skip_serializing_if = "Option::is_none"
     )]
     pub khr_materials_variants: Option<KhrMaterialsVariants>,
+
+    #[cfg(feature = "KHR_draco_mesh_compression")]
+    #[serde(
+        default,
+        rename = "KHR_draco_mesh_compression",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub khr_draco_mesh_compression: Option<KhrDracoMeshCompression>,
 }
 
 #[cfg(feature = "KHR_materials_variants")]
@@ -31,4 +39,12 @@ pub struct KhrMaterialsVariants {
 pub struct Mapping {
     pub material: u32,
     pub variants: Vec<u32>,
+}
+
+#[cfg(feature = "KHR_draco_mesh_compression")]
+#[derive(Clone, Debug, Deserialize, Serialize, Validate)]
+pub struct KhrDracoMeshCompression {
+    #[serde(rename = "bufferView")]
+    pub buffer_view: crate::Index<crate::buffer::View>,
+    pub attributes: std::collections::BTreeMap<crate::validation::Checked<crate::mesh::Semantic>, crate::Index<crate::Accessor>>,
 }
